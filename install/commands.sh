@@ -9,7 +9,6 @@ chown -R duser:duser /data/web/media
 chown -R duser:duser /%DJANGO_DIR_NAME%
 chmod -R 755 /data/web/static
 chmod -R 755 /data/web/media
-chmod -R 777 /%DJANGO_DIR_NAME%
 
 
 wait_psql.sh
@@ -20,6 +19,8 @@ if [ ! -d "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%" ]; then
     echo "Ciando APP"
     create_app.sh
 fi
+
+chmod -R 777 /%DJANGO_DIR_NAME%
 
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/static/%DJANGO_APP_NAME%/css"
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/templates/%DJANGO_APP_NAME%"
