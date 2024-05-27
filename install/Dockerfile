@@ -10,13 +10,13 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Em resumo, você verá os outputs do Python em tempo real.
 ENV PYTHONUNBUFFERED 1
 
-# Copia a pasta "Django" e "scripts" para dentro do container.
+# Copia a pasta "%DJANGO_DIR_NAME%" e "scripts" para dentro do container.
 RUN mkdir test
-COPY Django /Django
+COPY %DJANGO_DIR_NAME% /%DJANGO_DIR_NAME%
 COPY scripts /scripts
 
-# Entra na pasta Django no container
-WORKDIR /Django
+# Entra na pasta %DJANGO_DIR_NAME% no container
+WORKDIR /%DJANGO_DIR_NAME%
 
 # A porta 8000 estará disponível para conexões externas ao container
 # É a porta que vamos usar para o Django.
@@ -29,7 +29,7 @@ EXPOSE 8000
 # imagem e torná-la mais eficiente.
 RUN python -m venv /venv && \
   /venv/bin/pip install --upgrade pip && \
-  /venv/bin/pip install -r /Django/requirements.txt && \
+  /venv/bin/pip install -r /%DJANGO_DIR_NAME%/requirements.txt && \
   adduser --disabled-password --no-create-home duser && \
   mkdir -p /data/web/static && \
   mkdir -p /data/web/media && \

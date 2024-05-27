@@ -6,7 +6,7 @@ services:
     build:
       context: .
     volumes:
-      - ./Django:/Django
+      - ./%DJANGO_DIR_NAME%:/%DJANGO_DIR_NAME%
       - ./data/web/static:/data/web/static/
       - ./data/web/media:/data/web/media/
     ports:
