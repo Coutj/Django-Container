@@ -20,11 +20,11 @@ if [ ! -d "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%" ]; then
     create_app.sh
 fi
 
-chmod -R 777 /%DJANGO_DIR_NAME%
-
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/static/%DJANGO_APP_NAME%/css"
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/templates/%DJANGO_APP_NAME%"
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/static/%DJANGO_APP_NAME%/js"
 mkdir -p "/%DJANGO_DIR_NAME%/%DJANGO_APP_NAME%/static/%DJANGO_APP_NAME%/img"
+
+chmod -R 777 /%DJANGO_DIR_NAME%
 
 runserver.sh
