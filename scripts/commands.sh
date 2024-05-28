@@ -21,6 +21,8 @@ if [ ! -d "/Django/DJANGO_APP" ]; then
     create_app.sh
 fi
 
+create_superuser.sh
+
 mkdir -p "/Django/DJANGO_APP/static/DJANGO_APP/css"
 mkdir -p "/Django/DJANGO_APP/templates/DJANGO_APP"
 mkdir -p "/Django/DJANGO_APP/static/DJANGO_APP/js"
